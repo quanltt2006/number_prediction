@@ -33,7 +33,7 @@ class LeNetClassifer(nn.Module):
 def load_model():
     model = LeNetClassifer(num_classes=10)
     # Đường dẫn này trỏ vào thư mục model/ file lenet_model.pt của bạn
-    model_path = 'model/lenet_model.pt'
+    model_path = 'lenet_model.pt'
     if os.path.exists(model_path):
         model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
         model.eval()
@@ -78,3 +78,4 @@ if uploaded_file is not None:
                 
                 st.success(f"### Kết quả dự đoán: {predicted.item()}")
                 st.write(f"Độ tin cậy: {prob.item()*100:.2f}%")
+
